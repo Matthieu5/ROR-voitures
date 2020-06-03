@@ -1,0 +1,33 @@
+<h1>Affichage d'un client</h1>
+
+<p><%= @le_client.nom %> <%= @le_client.prenom %> <%= @le_client.adresse %> <%= @le_client.numero %> <%= @le_client.date_naissance %></p>
+</br>
+
+<%= form_tag "/clients/#{@le_client.id}", method: "patch" do %>
+    <label id="nom">Nom: </label>
+    <input type="text" name="nom">
+
+    <label id="prenom">Prénom: </label>
+    <input type="text" name="prenom">
+
+    <label id="adresse">Adresse: </label>
+    <input type="text" name="adresse">
+
+    <label id="numero">Numéro: </label>
+    <input type="text" name="numero">
+
+    <label id="date_naissance">Date de naissance: </label>
+    <input type="date" name="date_naissance">
+
+    <input type="submit" value="Modifier le client">
+<% end %>
+</form>
+</br>
+
+<%= form_tag "/clients/#{@le_client.id}", method: "delete" do %>
+    <input type="submit" value="Supprimer le client"/>
+<% end %>
+
+</br>
+<a href="/clients">Liste de tous les clients</a>
+<a href="/voitures/<%= @la_voiture.client.id %>">Voiture(s) du client</a>

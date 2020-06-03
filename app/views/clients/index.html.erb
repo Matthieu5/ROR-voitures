@@ -1,0 +1,29 @@
+<h1>Liste des clients</h1>
+
+<% @les_clients.each do |un_client| %>
+    <p><a href="/clients/<%= un_client.id %>"><%= un_client.nom %> <%= un_client.prenom %></a></p>
+<% end %>
+
+<%= form_tag "/clients", method: "post" do %>
+    <label id="nom">Nom: </label>
+    <input type="text" name="nom">
+
+    <label id="prenom">Prénom: </label>
+    <input type="text" name="prenom">
+
+    <label id="adresse">Adresse: </label>
+    <input type="text" name="adresse">
+
+    <label id="numero">Numéro: </label>
+    <input type="text" name="numero">
+
+    <label id="date_naissance">Date de naissance: </label>
+    <input type="date" name="date_naissance">
+
+    <input type="submit" value="Ajouter à la liste">
+<% end %>
+</form>
+
+</br>
+<a href="/voitures">Revenir à la liste des voitures</a>
+

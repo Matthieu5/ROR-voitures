@@ -1,0 +1,17 @@
+<h1>Liste des marques</h1>
+
+<% @les_marques.each do |une_marque| %>
+    <p><a href="/marques/<%= une_marque.id %>"><%= une_marque.id %> <%= une_marque.libelle %></a></p>
+<% end %>
+
+<%= form_tag "/marques", method: "post" do %>
+    <label id="libelle">Nom de la marque: </label>
+    <input type="text" name="libelle">
+
+    <input type="submit" value="Ajouter à la liste">
+<% end %>
+</form>
+
+</br>
+<a href="/voitures">Revenir à la liste des voitures</a>
+

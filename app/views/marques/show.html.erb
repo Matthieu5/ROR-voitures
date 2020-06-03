@@ -1,0 +1,27 @@
+<h1><%= @la_marque.libelle %></h1>
+
+<p>Voitures de la marque: <%= @la_marque.libelle %></p>
+
+<% if @la_voiture.marque.libelle == @la_marque.libelle %>
+    <p><%= @la_voiture.marque.libelle %> <%= @la_voiture.modele %></p>
+<% end %>
+</br>
+
+<%= form_tag "/marques/#{@la_marque.id}", method: "patch" do %>
+    <label id="libelle">Nom de la marque: </label>
+    <input type="integer" name="libelle">
+
+    <input type="submit" value="Modifier la marque">
+<% end %>
+</form>
+</br>
+
+<%= form_tag "/marques/#{@la_marque.id}", method: "delete" do %>
+    <input type="submit" value="Supprimer la marque"/>
+<% end %>
+
+</br>
+<a href="/marques">Liste des marques</a>
+<a href="/voitures">Liste des voitures</a>
+
+

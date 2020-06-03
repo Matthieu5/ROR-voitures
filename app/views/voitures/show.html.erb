@@ -1,0 +1,49 @@
+<h1>Affichage d'une voiture</h1>
+
+<p>
+    <% if @la_voiture.marque %>
+        <a href="/marques/<%= @la_voiture.marque.id %>"><%= @la_voiture.marque.libelle %></a>
+    <% end %>
+    <%= @la_voiture.modele %> <%= @le_vehicule2.couleur %> <%= @la_voiture.immatriculation %> <%= @la_voiture.date_mise_en_service %>
+    <a href="/clients/<%= @la_voiture.client.id %>"><%= @la_voiture.client.nom %> <%= @la_voiture.client.prenom %></a>
+</p>
+
+<%= form_tag "/voitures/#{@la_voiture.id}", method: "patch" do %>
+    <label id="immatriculation">Immatriculation: </label>
+    <input type="text" name="immatriculation">
+
+    <label id="couleur">Couleur: </label>
+    <input type="text" name="couleur">
+
+    <label id="marque_id">Marque: </label>
+    <select name="marque_id">
+      <% @les_marques.each do |marque| %>
+        <option value="<%= marque.id %>"><%= marque.libelle %></option>
+      <% end %>
+    </select>
+
+    <label id="modele">Modèle: </label>
+    <input type="text" name="modele">
+
+    <label id="client_id">Nom du propriétaire: </label>
+    <select name="client_id">
+      <% @les_clients.each do |client| %>
+        <option value="<%= client.id %>"><%= client.nom %> <%= client.prenom %></option>
+      <% end %>
+    </select>
+
+    <label id="date_mise_en_service">Date de mise en service: </label>
+    <input type="date" name="date_mise_en_service">
+
+    <input type="submit" value="Modifier la voiture">
+<% end %>
+</form>
+
+</br>
+<%= form_tag "/voitures/#{@la_voitures.id}", method: "delete" do %>
+    <input type="submit" value="Supprimer la voiture">
+<% end %>
+
+</br>
+<a href="/voitures">Revenir à la liste des voitures</a>
+

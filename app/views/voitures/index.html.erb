@@ -1,0 +1,50 @@
+<h1>Liste des voitures</h1>
+
+<% @les_voitures.each do |une_voiture| %>
+    <p>
+      <a href="/voitures/<%= une_voiture.id %>"><%= une_voiture.immatriculation%> <%= une_voiture.modele %>
+      <% if une_voiture.client %>
+        <%= une_voiture.client.prenom %> <%= une_voiture.client.nom %>
+      <% end %>
+      </a>
+      <% if une_voiture.marque %>
+          (<a href="/marques/<%= une_voiture.marque.id %>"><%= une_voiture.marque.libelle %></a>)
+      <% end %>
+    </p>
+<% end %>
+
+<%= form_tag "/voitures", method: "post" do %>
+    <label id="immatriculation">Immatriculation: </label>
+    <input type="text" name="immatriculation">
+
+    <label id="couleur">Couleur: </label>
+    <input type="text" name="couleur">
+
+     <label id="marque_id">Marque: </label>
+    <select name="marque_id">
+      <% @les_marques.each do |marque| %>
+        <option value="<%= marque.id %>"><%= marque.libelle %></option>
+      <% end %>
+    </select>
+
+    <label id="modele">Modèle: </label>
+    <input type="text" name="modele">
+
+    <label id="client_id">Nom du propriétaire: </label>
+    <select name="client_id">
+      <% @les_clients.each do |client| %>
+        <option value="<%= client.id %>"><%= client.nom %> <%= client.prenom %></option>
+      <% end %>
+    </select>
+
+    <label id="date_mise_en_service">Date de mise en service: </label>
+    <input type="date" name="date_mise_en_service">
+
+    <input type="submit" value="Ajouter à la liste">
+<% end %>
+</form>
+
+</br>
+<a href="/clients">Liste des clients</a>
+<a href="/marques">Liste des marques</a>
+

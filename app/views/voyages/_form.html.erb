@@ -1,0 +1,32 @@
+<%= form_with(model: voyage, local: true) do |form| %>
+  <% if voyage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(voyage.errors.count, "error") %> prohibited this voyage from being saved:</h2>
+
+      <ul>
+        <% voyage.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pays %>
+    <%= form.text_field :pays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_depart %>
+    <%= form.date_select :date_depart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duree %>
+    <%= form.text_field :duree %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

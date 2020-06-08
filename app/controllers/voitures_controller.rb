@@ -11,6 +11,14 @@ class VoituresController < ApplicationController
     @les_marques = Marque.all
   end
 
+  def show_par_immatriculation
+    if @la_voiture
+      @la_voiture.find(params[:immatriculation])
+      @la_voiture.find(params[:id])
+    end
+    redirect_to "/voitures/#{params[:id]}"
+  end
+
   def create
     Voiture.create(immatriculation: params[:immatriculation], couleur: params[:couleur], marque_id: params[:marque_id], modele: params[:modele], client_id: params[:client_id], date_mise_en_service: params[:date_mise_en_service])
     redirect_to "/voitures"

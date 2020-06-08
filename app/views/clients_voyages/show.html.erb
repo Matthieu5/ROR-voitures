@@ -1,0 +1,36 @@
+<% @les_clients_voyages.each do |le_clients_voyage| %>    
+    <% if @le_clients_voyage.voyages %>
+        <h1>Voyage du <%= @le_clients_voyage.voyages.date_depart %>, destination : <%= @le_clients_voyage.voyages.pays %></h1>
+
+        <p>participant(s): </p>
+        <p><%= @le_clients_voyage.clients=nom %> <%= @le_clients_voyage.clients=prenom %></p>
+
+         </br>
+         <%= form_tag "/clients_voyages/#{@le_clients_voyage.id}", method: "patch" do %>
+             <label id="client_id">Client: </label>
+             <select name="clients_ids">
+                 <% @les_clients.each do |client| %>
+                 <option value="<%= client.id %>"><%= client.nom %><%= client.prenom %></option>
+             <% end %>
+             </select>
+
+             <label id="voyage_id">Voyage: </label>
+             <select name="Voyage_ids">
+                  <% @les_voyages.each do |voyage| %>
+                  <option value="<%= voyage.id %>"><%= voyage.pays %><%= voyage.date_depart %></option>
+             <% end %>
+             </select>
+
+             <input type="submit" value="Modifier la liste">
+             <% end %>
+        </form>
+
+        </br>
+        <%= form_tag "/clients_voyages/#{@le_clients_voyage.id}", method: "delete" do %>
+            <input type="submit" value="Supprimer le client du voyage">
+        <% end %>
+
+        </br>
+        <a href="/clients_voyages">Revenir à l'ajout d'un client pour un voyage</a>
+    <% end %>
+<% end %>

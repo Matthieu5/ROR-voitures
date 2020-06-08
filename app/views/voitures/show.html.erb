@@ -4,7 +4,7 @@
     <% if @la_voiture.marque %>
         <a href="/marques/<%= @la_voiture.marque.id %>"><%= @la_voiture.marque.libelle %></a>
     <% end %>
-    <%= @la_voiture.modele %> <%= @le_vehicule2.couleur %> <%= @la_voiture.immatriculation %> <%= @la_voiture.date_mise_en_service %>
+    <%= @la_voiture.modele %> <%= @la_voiture.couleur %> <%= @la_voiture.immatriculation %> <%= @la_voiture.date_mise_en_service %>
     <a href="/clients/<%= @la_voiture.client.id %>"><%= @la_voiture.client.nom %> <%= @la_voiture.client.prenom %></a>
 </p>
 
@@ -40,7 +40,7 @@
 </form>
 
 </br>
-<%= form_tag "/voitures/#{@la_voitures.id}", method: "delete" do %>
+<%= form_tag "/voitures/#{@la_voiture.id}", method: "delete" do %>
     <input type="submit" value="Supprimer la voiture">
 <% end %>
 

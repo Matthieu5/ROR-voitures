@@ -1,0 +1,2 @@
+module ClientsVoyagesHelper
+end

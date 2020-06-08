@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_124323) do
+ActiveRecord::Schema.define(version: 2020_06_05_083938) do
 
   create_table "clients", force: :cascade do |t|
     t.string "nom"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_06_03_124323) do
     t.string "adresse"
     t.string "numero"
     t.date "date_naissance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients_voyages", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "voyage_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,6 +42,14 @@ ActiveRecord::Schema.define(version: 2020_06_03_124323) do
     t.string "modele"
     t.date "date_mise_en_service"
     t.integer "client_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "voyages", force: :cascade do |t|
+    t.string "pays"
+    t.date "date_depart"
+    t.string "duree"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

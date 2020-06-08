@@ -1,0 +1,30 @@
+<h1>Liste des voyages</h1>
+
+<% @les_voyages.each do |un_voyage| %>
+    <p><a href="/clients_voyages/<%= un_voyage.id %>"><%= un_voyage.pays %> <%= un_voyage.date_depart %> <%= un_voyage.duree %></a></p>
+<% end %>
+
+<%= form_tag "/clients_voyages", method: "post" do %>
+    <label id="client_id">Client: </label>
+    <select name="clients_ids">
+      <% @les_clients.each do |client| %>
+        <option value="<%= client.id %>"><%= client.nom %> <%= client.prenom %></option>
+      <% end %>
+    </select>
+
+    <label id="voyage_id">Voyage: </label>
+    <select name="Voyage_ids">
+      <% @les_voyages.each do |voyage| %>
+        <option value="<%= voyage.id %>"><%= voyage.pays %> <%= voyage.date_depart %></option>
+      <% end %>
+    </select>
+
+    <input type="submit" value="Ajouter à la liste">
+<% end %>
+</form>
+
+</br>
+<a href="/voyages">Liste des voyages</a>
+<a href="/clients">Liste des clients</a>
+<a href="/voitures">Liste des voitures</a>
+<a href="/marques">Liste des marques</a>

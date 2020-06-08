@@ -1,0 +1,27 @@
+<%= form_with(model: clients_voyage, local: true) do |form| %>
+  <% if clients_voyage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clients_voyage.errors.count, "error") %> prohibited this clients_voyage from being saved:</h2>
+
+      <ul>
+        <% clients_voyage.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.number_field :client_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voyage_id %>
+    <%= form.number_field :voyage_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

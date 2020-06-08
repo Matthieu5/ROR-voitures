@@ -1,0 +1,25 @@
+<h1>Affichage d'un voyage</h1>
+
+<p><%= @le_voyage.pays %> <%= @le_voyage.date_depart %> <%= @le_voyage.duree %></p>
+
+<%= form_tag "/voyages/#{@le_voyage.id}", method: "patch" do %>
+    <label id="pays">Pays de destination: </label>
+    <input type="text" name="pays">
+
+    <label id="date_depart">Date de départ: </label>
+    <input type="date" name="date_depart">
+
+    <label id="duree">Durée du voyage: </label>
+    <input type="text" name="duree">
+
+    <input type="submit" value="Modifier le voyage">
+<% end %>
+</form>
+
+</br>
+<%= form_tag "/voyages/#{@le_voyage.id}", method: "delete" do %>
+    <input type="submit" value="Supprimer le voyage">
+<% end %>
+
+</br>
+<a href="/voyages">Revenir à la liste des voyages</a>

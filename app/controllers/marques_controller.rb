@@ -6,7 +6,6 @@ class MarquesController < ApplicationController
   def show
     @la_marque = Marque.find(params[:id])
     @les_voitures = Voiture.all
-    @la_voiture = Voiture.find(params[:id])
   end
 
   def create

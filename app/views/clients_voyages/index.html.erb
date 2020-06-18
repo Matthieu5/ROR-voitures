@@ -4,20 +4,15 @@
     <p><a href="/clients_voyages/<%= un_voyage.id %>"><%= un_voyage.pays %> <%= un_voyage.date_depart %> <%= un_voyage.duree %></a></p>
 <% end %>
 
-<%= form_tag "/clients_voyages", method: "post" do %>
-    <label id="client_id">Client: </label>
-    <select name="clients_ids">
-      <% @les_clients.each do |client| %>
-        <option value="<%= client.id %>"><%= client.nom %> <%= client.prenom %></option>
-      <% end %>
-    </select>
+<%= form_tag "/voyages", method: "post" do %>
+    <label id="pays">Pays de destination: </label>
+    <input type="text" name="pays">
 
-    <label id="voyage_id">Voyage: </label>
-    <select name="Voyage_ids">
-      <% @les_voyages.each do |voyage| %>
-        <option value="<%= voyage.id %>"><%= voyage.pays %> <%= voyage.date_depart %></option>
-      <% end %>
-    </select>
+    <label id="date_depart">Date de départ: </label>
+    <input type="date" name="date_depart">
+
+    <label id="duree">Durée du voyage: </label>
+    <input type="text" name="duree">
 
     <input type="submit" value="Ajouter à la liste">
 <% end %>

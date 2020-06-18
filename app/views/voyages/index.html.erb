@@ -1,7 +1,7 @@
 <h1>Liste des voyages</h1>
 
-<% @les_voyages.each do |@un_voyage| %>
-    <p><a href="/voyages/<%= @un_voyage.id %>"><%= @un_voyage.pays %> <%= @un_voyage.date_depart %> <%= @un_voyage.duree %></a></p>
+<% @les_voyages.each do |un_voyage| %>
+    <p><a href="/voyages/<%= un_voyage.id %>"><%= un_voyage.pays %> <%= un_voyage.date_depart %> <%= un_voyage.duree %></a></p>
 <% end %>
 
 <%= form_tag "/voyages", method: "post" do %>

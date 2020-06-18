@@ -35,9 +35,8 @@ Rails.application.routes.draw do
 
   get 'clients_voyages' => 'clients_voyages#index'
   get 'clients_voyages/:id' => 'clients_voyages#show'
-  patch 'clients_voyages/:id' => 'clients_voyages#update'
   delete 'clients_voyages/:id' => 'clients_voyages#destroy'
-  post 'clients/voyages' => 'clients_voyages#create'
+  post 'clients_voyages/:id' => 'clients_voyages#create'
 
   resources :clients_voyages
 

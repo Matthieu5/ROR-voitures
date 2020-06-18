@@ -12,11 +12,8 @@ class VoituresController < ApplicationController
   end
 
   def show_par_immatriculation
-    if @la_voiture
-      @la_voiture.find(params[:immatriculation])
-      @la_voiture.find(params[:id])
-    end
-    redirect_to "/voitures/#{params[:id]}"
+    @la_voiture = Voiture.where(immatriculation: params[:immatriculation]).first
+    redirect_to @la_voiture
   end
 
   def create

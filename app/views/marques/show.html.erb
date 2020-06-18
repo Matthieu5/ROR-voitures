@@ -3,7 +3,9 @@
 <p>Voitures de la marque: <%= @la_marque.libelle %></p>
 
 <% @les_voitures.each do |la_voiture| %>
-    <p><%= la_voiture.marque.libelle %> <a href="/voitures/<%= la_voiture.id %>"><%= la_voiture.modele %></a></p>
+    <% if la_voiture.marque_id == @la_marque.id %>
+        <p><%= la_voiture.marque.libelle %> <a href="/voitures/<%= la_voiture.id %>"><%= la_voiture.modele %></a></p>
+    <% end %>
 <% end %>
 </br>
 
